@@ -1,4 +1,9 @@
+import 'dart:async';
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:http/http.dart' as http;
 
 class DriverHome extends StatefulWidget {
   final String busId;
@@ -11,8 +16,39 @@ class DriverHome extends StatefulWidget {
 
 class _DriverHomeState extends State<DriverHome> {
   bool isSharing = false;
+  Timer? locationTimer;
 
-  void startSharing() {
+  // Change this to your backend API URL
+  final String serverUrl = 'http://10.0.2.2:5000/api/driver/location';
+
+  void startSharing() async {
+    // Request permissions and check location service status before starting
+    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Location services are disabled. Please enable them.')),
+      );
+      return;
+    }
+
+    LocationPermission permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Location permission denied')),
+        );
+        return;
+      }
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Location permissions are permanently denied')),
+      );
+      return;
+    }
+
     setState(() => isSharing = true);
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -20,16 +56,65 @@ class _DriverHomeState extends State<DriverHome> {
         backgroundColor: Colors.green,
       ),
     );
+
+    // Start sending location every 5 seconds
+    locationTimer = Timer.periodic(Duration(seconds: 5), (timer) async {
+      try {
+        Position position = await Geolocator.getCurrentPosition(
+          desiredAccuracy: LocationAccuracy.high,
+        );
+        await sendLocationToServer(position.latitude, position.longitude);
+      } catch (e) {
+        print("Error getting location: $e");
+      }
+    });
   }
 
   void stopSharing() {
     setState(() => isSharing = false);
+    locationTimer?.cancel();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text("Arrived at last stop. Location sharing stopped."),
         backgroundColor: Colors.redAccent,
       ),
     );
+  }
+
+  Future<void> sendLocationToServer(double latitude, double longitude) async {
+  try {
+    // 👇 Print payload before sending
+    final payload = jsonEncode({
+      'busId': widget.busId,
+      'busName': widget.busName,
+      'latitude': latitude,
+      'longitude': longitude,
+    });
+
+    print('Sending payload: $payload');
+
+    // 👇 Then use the payload in the request
+    var response = await http.post(
+      Uri.parse(serverUrl),
+      headers: {'Content-Type': 'application/json'},
+      body: payload,
+    );
+
+    if (response.statusCode == 200) {
+      print('Location sent successfully');
+    } else {
+      print('Failed to send location: ${response.statusCode}');
+    }
+  } catch (e) {
+    print('Error sending location: $e');
+  }
+}
+
+
+  @override
+  void dispose() {
+    locationTimer?.cancel();
+    super.dispose();
   }
 
   @override

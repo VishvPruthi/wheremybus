@@ -8,15 +8,16 @@ class SelectBusScreen extends StatefulWidget {
 
 class _SelectBusScreenState extends State<SelectBusScreen> {
   final List<Map<String, String>> busList = [
-    {"id": "101", "name": "City Express"},
-    {"id": "202", "name": "Metro Rider"},
-    {"id": "303", "name": "Downtown Shuttle"},
-    {"id": "404", "name": "School Bus"},
-    {"id": "505", "name": "Airport Link"},
-    {"id": "606", "name": "Night Rider"},
-    {"id": "707", "name": "Eco Bus"},
-    {"id": "808", "name": "Rapid Transit"},
-    {"id": "909", "name": "Highway Star"},
+    {"id": "101", "name": "Rohtak"},
+    {"id": "202", "name": "Beri"},
+    {"id": "303", "name": "Gururgram"},
+    {"id": "404", "name": "Rewari"},
+    {"id": "505", "name": "Panipat"},
+    {"id": "606", "name": "karnal"},
+    {"id": "707", "name": "Haridwar"},
+    {"id": "808", "name": "Bahadurgarh"},
+    {"id": "909", "name": "Najafgarh"},
+    {"id": "1001", "name": "Sonipat"},
   ];
 
   String searchText = "";
