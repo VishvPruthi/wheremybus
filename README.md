@@ -21,16 +21,11 @@ It also provides a **driver interface** to share bus location, with GPS integrat
 ---
 
 ## 🖼️ Screenshots  
- 
-![App Screenshot](wheremybus/assets/screenshot/Screenshot_1.png)
-![App Screenshot](wheremybus/assets/screenshot/Screenshot_17693126.png)
-![App Screenshot](wheremybus/assets/screenshot/Screenshot_1761393140.png)
-![App Screenshot](wheremybus/assets/screenshot/Screenshot_1761393148.pngg)
-![App Screenshot](wheremybus/assets/screenshot/Screenshot_1761393292.png)
-
-
-
-
+<img src="wheremybus/assets/screenshot/Screenshot_1.png" alt="App Screenshot 1" width="300"/>
+<img src="wheremybus/assets/screenshot/Screenshot_17693126.png" alt="App Screenshot 2" width="300"/>
+<img src="wheremybus/assets/screenshot/Screenshot_1761393140.png" alt="App Screenshot 3" width="300"/>
+<img src="wheremybus/assets/screenshot/Screenshot_1761393148.png" alt="App Screenshot 4" width="300"/>
+<img src="wheremybus/assets/screenshot/Screenshot_1761393292.png" alt="App Screenshot 5" width="300"/>
 
 --- 
 
