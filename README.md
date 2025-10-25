@@ -22,12 +22,11 @@ It also provides a **driver interface** to share bus location, with GPS integrat
 
 ## 🖼️ Screenshots  
  
-
-![App Screenshot](Screenshot_1.png)
-![App Screenshot](Screenshot_17693126.png)
-![App Screenshot](Screenshot_1761393140.png)
-![App Screenshot](Screenshot_1761393148.pngg)
-![App Screenshot](Screenshot_1761393292.png)
+![App Screenshot](assets/screenshots/Screenshot_1.png)
+![App Screenshot](assets/screenshots/Screenshot_17693126.png)
+![App Screenshot](assets/screenshots/Screenshot_1761393140.png)
+![App Screenshot](assets/screenshots/Screenshot_1761393148.pngg)
+![App Screenshot](assets/screenshots/Screenshot_1761393292.png)
 
 
 
@@ -39,13 +38,13 @@ It also provides a **driver interface** to share bus location, with GPS integrat
 
 Here’s a short demo of the app:  
 
-html
+```html
 <video width="600" controls>
   <source src="assets/videos/unititled.webm" type="video/webm">
   Your browser does not support the video tag.
 </video>
 
-
+```
 ## 🛠️ Tech Stack  
 - **Mobile App:** Flutter  
 - **Backend Server:** Node.js (`server.js`)   
