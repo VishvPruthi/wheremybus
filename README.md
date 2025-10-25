@@ -32,7 +32,7 @@ It also provides a **driver interface** to share bus location, with GPS integrat
 ## 🎬 Demo  
 
 Here’s a short demo of the app:  
-![App Screenshot](wheremybus/assets/videos/unititled.webm)
+
 ```html
 <video width="600" controls>
   <source src="wheremybus/assets/videos/unititled.webm" type="video/webm">
