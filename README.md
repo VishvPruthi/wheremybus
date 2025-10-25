@@ -22,11 +22,11 @@ It also provides a **driver interface** to share bus location, with GPS integrat
 
 ## 🖼️ Screenshots  
  
-![App Screenshot](assets/screenshots/Screenshot_1.png)
-![App Screenshot](assets/screenshots/Screenshot_17693126.png)
-![App Screenshot](assets/screenshots/Screenshot_1761393140.png)
-![App Screenshot](assets/screenshots/Screenshot_1761393148.pngg)
-![App Screenshot](assets/screenshots/Screenshot_1761393292.png)
+![App Screenshot](wheremybus/assets/screenshot/Screenshot_1.png)
+![App Screenshot](wheremybus/assets/screenshot/Screenshot_17693126.png)
+![App Screenshot](wheremybus/assets/screenshot/Screenshot_1761393140.png)
+![App Screenshot](wheremybus/assets/screenshot/Screenshot_1761393148.pngg)
+![App Screenshot](wheremybus/assets/screenshot/Screenshot_1761393292.png)
 
 
 
@@ -37,10 +37,10 @@ It also provides a **driver interface** to share bus location, with GPS integrat
 ## 🎬 Demo  
 
 Here’s a short demo of the app:  
-
+![App Screenshot](wheremybus/assets/videos/unititled.webm)
 ```html
 <video width="600" controls>
-  <source src="assets/videos/unititled.webm" type="video/webm">
+  <source src="wheremybus/assets/videos/unititled.webm" type="video/webm">
   Your browser does not support the video tag.
 </video>
 
